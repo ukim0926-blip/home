@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>::: Welcome to KTM :::</title>
+    <!-- 뷰포트 설정: 반응형 디자인 필수 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Tailwind CSS CDN 로드 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 기본 Inter 폰트 사용 및 부드러운 스크롤 */
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            background-color: #f7f7f7;
+        }
+        /* 이미지 스왑 효과를 위해 CSS가 아닌 JS를 사용하므로, 여기에 기본적인 호버 효과만 남깁니다. */
+        .menu-item:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
+        }
+    </style>
+    <script>
+        // Tailwind config: 원본 KTM blue 색상 정의 및 기본 폰트 설정
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'ktm-blue': '#5764b9', // 원본 메뉴 배경색
+                        'ktm-light': '#a1a8e8',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="min-h-screen">
+
+    <!-- 최상위 컨테이너: 최대 너비 설정 및 가운데 정렬 -->
+    <div class="max-w-7xl mx-auto p-4 md:p-8">
+
+        <!-- 메인 레이아웃: 데스크톱에서는 가로(flex-row), 모바일에서는 세로(flex-col)로 변경 -->
+        <div id="container" class="flex flex-col lg:flex-row gap-6">
+
+            <!-- 네비게이션/사이드바 영역 -->
+            <nav id="sidebar" class="bg-ktm-blue text-white rounded-xl shadow-2xl p-4 w-full lg:w-56 flex-shrink-0 transition-all duration-300">
+                
+                <!-- 상단 여백 (height="30" 대체) -->
+                <div class="h-8"></div>
+
+                <!-- 메뉴 리스트 -->
+                <ul id="main-menu" class="space-y-1 lg:space-y-2 lg:block flex flex-wrap justify-center gap-2">
+                    
+                    <!-- 현재 페이지 메뉴 항목 (bt_1up.gif 대체) -->
+                    <li>
+                        <img src="https://placehold.co/109x27/5764b9/ffffff?text=HOME" alt="메인 페이지" class="w-full h-auto rounded-md shadow-inner">
+                    </li>
+
+                    <!-- 메뉴 항목 (이미지 스왑 기능 복원: data-hover-src 사용) -->
+                    <!-- 이미지 경로는 가상의 placehold.co 링크를 사용하여 원본 이미지(bt_2.gif)와 호버 이미지(bt_2up.gif)를 시뮬레이션합니다. -->
+                    <li>
+                        <a href="htm/about.htm?num=0" class="menu-item block transform transition-all duration-150 rounded-md overflow-hidden" target="_self">
+                            <img data-name="Image5" src="https://placehold.co/109x26/3b4793/ffffff?text=About" alt="회사 소개" data-hover-src="https://placehold.co/109x26/9fa4d4/3b4793?text=About%20(Hover)" class="w-full h-auto block">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/htm/product_set1.htm?num=0" class="menu-item block transform transition-all duration-150 rounded-md overflow-hidden" target="_self">
+                            <img data-name="Image6" src="https://placehold.co/109x27/3b4793/ffffff?text=Product" alt="제품 정보" data-hover-src="https://placehold.co/109x27/9fa4d4/3b4793?text=Product%20(Hover)" class="w-full h-auto block">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="htm/qna.htm?num=0" class="menu-item block transform transition-all duration-150 rounded-md overflow-hidden" target="_self">
+                            <img data-name="Image7" src="https://placehold.co/109x27/3b4793/ffffff?text=Q%26A" alt="Q&A" data-hover-src="https://placehold.co/109x27/9fa4d4/3b4793?text=Q%26A%20(Hover)" class="w-full h-auto block">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="htm/dataroom.htm" class="menu-item block transform transition-all duration-150 rounded-md overflow-hidden" target="_self">
+                            <img data-name="Image8" src="https://placehold.co/109x27/3b4793/ffffff?text=DataRoom" alt="자료실" data-hover-src="https://placehold.co/109x27/9fa4d4/3b4793?text=DataRoom%20(Hover)" class="w-full h-auto block">
+                        </a>
+                    </li>
+                </ul>
+
+                <!-- 이메일 문의 및 하단 장식 -->
+                <div class="mt-4 lg:mt-8 text-center space-y-2">
+                    <a href="mailto:ukim@ktmpress.co.kr" class="block w-full">
+                        <img src="https://placehold.co/109x22/ffc107/333333?text=Email%20Contact" alt="이메일 문의" class="mx-auto block rounded-full hover:ring-2 ring-yellow-300 transition-all">
+                    </a>
+                    <img src="https://placehold.co/109x16/3b4793/ffffff?text=MENU%20DN" alt="메뉴 장식" class="mx-auto block">
+                </div>
+
+                <!-- 하단 화이트 영역 (높이 188px 대체) -->
+                <div class="h-48 mt-4 rounded-md bg-white shadow-inner hidden lg:block">
+                    <!-- 기타 정보나 광고를 넣을 수 있는 영역 -->
+                    <p class="text-gray-500 text-xs p-2">Additional Info Area</p>
+                </div>
+            </nav>
+
+            <!-- 메인 콘텐츠 영역 -->
+            <main id="content" class="flex-grow">
+                <div class="bg-white p-6 rounded-xl shadow-xl">
+                    
+                    <!-- 홈 타이틀 이미지 (t_home.gif 대체) -->
+                    <img src="https://placehold.co/600x60/f0f0f0/333333?text=Welcome+to+KTM" alt="Home 타이틀" class="w-full max-w-lg mb-6 rounded-md">
+
+                    <div class="flex flex-col md:flex-row gap-6">
+
+                        <!-- 메인 비주얼/Flash 대체 영역 -->
+                        <div class="w-full md:w-64 flex-shrink-0">
+                            <div class="aspect-w-1 aspect-h-1 bg-gray-200 rounded-lg overflow-hidden shadow-md">
+                                <!-- main.swf (250x270) 대체 -->
+                                <img src="https://placehold.co/250x270/e0e0e0/333333?text=Main+Visual%20(Flash+Area)" alt="메인 비주얼" class="w-full h-full object-cover">
+                            </div>
+                        </div>
+
+                        <!-- 비디오 링크 영역 -->
+                        <div class="w-full md:w-64 flex-shrink-0">
+                            <!-- tv.jpg (250x188) 대체 및 팝업 기능 복원 -->
+                            <a href="movie.htm" id="video-link" class="block transform transition-all duration-300 hover:scale-[1.03] shadow-lg rounded-lg overflow-hidden">
+                                <img src="https://placehold.co/250x188/000000/ffffff?text=Click+to+Watch+Video" alt="영상 보기 링크" class="w-full h-auto block">
+                            </a>
+                            <p class="text-xs text-gray-500 mt-2">팝업 창으로 영상이 열립니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- 푸터 영역 -->
+        <footer class="mt-10 pt-4 border-t border-gray-300 text-center">
+            <!-- copy.gif (750px) 대체 -->
+            <img src="https://placehold.co/750x30/dddddd/333333?text=Copyright+%C2%A9+KTM.+All+Rights+Reserved." alt="저작권 정보" class="w-full max-w-4xl mx-auto h-auto rounded-md">
+        </footer>
+    </div>
+
+    <!-- 인터랙티브 JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. 이미지 스왑 기능 (MM_swapImage 대체)
+            const menuItems = document.querySelectorAll('.menu-item img');
+
+            menuItems.forEach(img => {
+                const originalSrc = img.src; 
+                const hoverSrc = img.getAttribute('data-hover-src'); 
+
+                if (hoverSrc) {
+                    // 마우스 진입 시 (onMouseOver)
+                    img.addEventListener('mouseover', function() {
+                        this.src = hoverSrc;
+                    });
+
+                    // 마우스 이탈 시 (onMouseOut)
+                    img.addEventListener('mouseout', function() {
+                        this.src = originalSrc;
+                    });
+
+                    // 터치 장치 지원: 터치 시작 시 호버 이미지로 변경 (일반적인 모바일 동작)
+                    img.addEventListener('touchstart', function() {
+                        this.src = hoverSrc;
+                    });
+                    
+                    // 터치 끝난 후 잠시 후 원래 이미지로 복원 (선택적)
+                    img.addEventListener('touchend', function() {
+                        setTimeout(() => {
+                            this.src = originalSrc;
+                        }, 500); 
+                    });
+                }
+            });
+
+            // 2. 비디오 팝업 창 기능 (MM_openBrWindow 대체)
+            const videoLink = document.getElementById('video-link');
+            if (videoLink) {
+                videoLink.addEventListener('click', function(e) {
+                    e.preventDefault(); 
+                    
+                    // 팝업 창 크기 및 기능 설정
+                    const url = this.href;
+                    const name = 'VideoPlayer';
+                    const features = 'width=480,height=380,scrollbars=yes,resizable=yes';
+                    
+                    window.open(url, name, features);
+                });
+            }
+        });
+    </script>
+</body>
+</html>
